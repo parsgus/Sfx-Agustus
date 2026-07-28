@@ -37,6 +37,16 @@
       0 0 4px rgba(255, 255, 255, 0.8),
       0 0 10px rgba(255, 255, 255, 0.4),
       0 0 18px rgba(255, 255, 255, 0.2);
+    animation: driftBox 14s ease-in-out infinite;
+  }
+
+  @keyframes driftBox {
+    0%   { transform: translate(0px, 0px); }
+    20%  { transform: translate(6px, -4px); }
+    40%  { transform: translate(-5px, 5px); }
+    60%  { transform: translate(4px, 6px); }
+    80%  { transform: translate(-6px, -3px); }
+    100% { transform: translate(0px, 0px); }
   }
 
   .glow-box p {
@@ -57,12 +67,46 @@
     50%  { transform: translateY(-8px); }
     100% { transform: translateY(0px); }
   }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .info-text {
+    color: #ffe066;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.7;
+    text-align: center;
+    max-width: 360px;
+    text-shadow:
+      0 0 6px rgba(255, 224, 102, 0.12),
+      0 0 16px rgba(255, 224, 102, 0.1),
+      0 0 32px rgba(255, 224, 102, 0.08);
+    animation: driftText 16s ease-in-out infinite;
+  }
+
+  @keyframes driftText {
+    0%   { transform: translate(0px, 0px); }
+    25%  { transform: translate(-4px, 3px); }
+    50%  { transform: translate(5px, -3px); }
+    75%  { transform: translate(-3px, -4px); }
+    100% { transform: translate(0px, 0px); }
+  }
 </style>
 </head>
 <body>
 
-  <div class="glow-box">
-    <p>awal bulan Agustus gua kasih,<br>lagi ogah😹😹</p>
+  <div class="wrapper">
+    <div class="glow-box">
+      <p>awal bulan Agustus gua kasih,<br>lagi ogah😹😹</p>
+    </div>
+
+    <p class="info-text">untuk sementara ini website jadi informasi jadwal kasih SFX, mungkin kedepannya ini website jadi website portofolio gua</p>
   </div>
 
 </body>
