@@ -11,17 +11,16 @@
 
 <!-- Open Graph -->
 <meta property="og:title" content="Parsgus">
-<meta property="og:description" content="Y">
+<meta property="og:description" content="Website sedang dalam perawatan, bakal balik lagi sebentar lagi">
 <meta property="og:image" content="https://parsgus.my.id/og-image.png">
 <meta property="og:image:width" content="736">
 <meta property="og:image:height" content="736">
 <meta property="og:url" content="https://parsgus.my.id">
 <meta property="og:type" content="website">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Parsgus">
-<meta name="twitter:description" content="Y">
+<meta name="twitter:description" content="Website sedang dalam perawatan, bakal balik lagi sebentar lagi">
 <meta name="twitter:image" content="https://parsgus.my.id/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,29 +33,24 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-  }
-
-  button, a, .menu-item-header {
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    -webkit-user-select: none;
-    user-select: none;
   }
 
   body {
     background-color: #000;
-    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Poppins', 'Segoe UI', sans-serif;
-    overflow-x: hidden;
   }
 
-  /* ===== HEADER ===== */
-  .header {
+  .wrapper {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 24px 24px 0 24px;
+    gap: 26px;
+    padding: 24px;
+    text-align: center;
   }
 
   .logo {
@@ -64,6 +58,7 @@
     border-radius: 16px;
     padding: 14px 28px;
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
+    margin-bottom: 10px;
   }
 
   .logo span {
@@ -72,372 +67,70 @@
     color: #111;
   }
 
-  /* ===== HAMBURGER / CLOSE BUTTON ===== */
-  .menu-toggle {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    z-index: 1001;
-    position: relative;
-  }
-
-  .menu-toggle span {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background: #ffffff;
-    border-radius: 2px;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-    transition: transform 0.35s ease, opacity 0.25s ease;
-  }
-
-  .menu-toggle.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
-
-  /* ===== SLIDE MENU ===== */
-  .menu-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: 1000;
-    padding: 90px 24px 40px 24px;
-    transform: translateY(-100%);
-    transition: transform 0.4s ease;
-    overflow-y: auto;
-  }
-
-  .menu-panel.open {
-    transform: translateY(0);
-  }
-
-  .menu-item {
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.15);
-    padding: 20px 4px;
-  }
-
-  .menu-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .menu-item-header span.title {
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .chevron {
-    width: 14px;
-    height: 14px;
-    border-right: 2.5px solid #ffffff;
-    border-bottom: 2.5px solid #ffffff;
-    transform: rotate(45deg);
-    transition: transform 0.3s ease;
-  }
-
-  .menu-item.expanded .chevron {
-    transform: rotate(225deg);
-  }
-
-  .menu-item-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .menu-item.expanded .menu-item-content {
-    max-height: 2000px;
-    padding-top: 20px;
-  }
-
-  .menu-btn {
-    background: #ffffff;
-    color: #111;
-    border: none;
-    border-radius: 10px;
-    padding: 14px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.25);
-  }
-
-  .info-text {
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.7;
-    letter-spacing: 0.2px;
-  }
-
-  .kisah-text {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.9;
-    letter-spacing: 0.2px;
-  }
-
-  /* ===== MAIN CONTENT ===== */
-  .main-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 110px);
-    padding: 40px 20px;
-  }
-
   .glow-box {
     width: 320px;
-    min-height: 420px;
     border: 0.5px solid #ffffff;
     border-radius: 20px;
+    padding: 40px 28px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 34px;
-    padding: 30px;
+    gap: 20px;
     box-shadow:
       0 0 2px rgba(255, 255, 255, 0.5),
       0 0 5px rgba(255, 255, 255, 0.25);
+    animation: driftBox 14s ease-in-out infinite;
   }
 
-  .box-btn {
-    background: #ffffff;
-    color: #111;
-    border: none;
-    border-radius: 10px;
-    padding: 16px 30px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow:
-      0 0 4px rgba(255, 255, 255, 0.6),
-      0 0 10px rgba(255, 255, 255, 0.3);
+  @keyframes driftBox {
+    0%   { transform: translate(0px, 0px); }
+    20%  { transform: translate(6px, -4px); }
+    40%  { transform: translate(-5px, 5px); }
+    60%  { transform: translate(4px, 6px); }
+    80%  { transform: translate(-6px, -3px); }
+    100% { transform: translate(0px, 0px); }
   }
 
-  .box-btn.soon {
-    font-family: 'Poppins', serif;
-    font-style: italic;
-    text-transform: none;
-    font-weight: 600;
+  .icon {
+    font-size: 42px;
+    animation: spin 3s linear infinite;
   }
 
-  .sfx-btn {
-    box-shadow:
-      inset -10px 0 14px rgba(0, 0, 0, 0.18),
-      inset 10px 0 14px rgba(0, 0, 0, 0.18),
-      inset 0 -6px 10px rgba(0, 0, 0, 0.12),
-      0 0 4px rgba(255, 255, 255, 0.6),
-      0 0 10px rgba(255, 255, 255, 0.3);
-    transition: transform 0.15s ease;
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
-  .sfx-btn:active {
-    transform: scale(0.93);
-  }
-
-  /* ===== POPUP ===== */
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-    padding: 24px;
-  }
-
-  .popup-overlay.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .popup-box {
-    position: relative;
-    border: 1.5px solid #ffffff;
-    border-radius: 18px;
-    padding: 26px 34px;
-    background: #000;
-    box-shadow:
-      0 0 4px rgba(255, 255, 255, 0.5),
-      0 0 12px rgba(255, 255, 255, 0.2);
-    transform: scale(0.9);
-    transition: transform 0.25s ease;
-  }
-
-  .popup-overlay.show .popup-box {
-    transform: scale(1);
-  }
-
-  .popup-close {
-    position: absolute;
-    top: -14px;
-    right: -14px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #ffffff;
-    color: #111;
-    border: none;
-    font-size: 20px;
-    line-height: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-  }
-
-  .popup-box p {
+  .glow-box h1 {
     color: #ffffff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    font-weight: 600;
-    text-align: center;
-    letter-spacing: 0.3px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow:
+      0 0 3px rgba(255, 255, 255, 0.8),
+      0 0 8px rgba(255, 255, 255, 0.4);
+  }
+
+  .glow-box p {
+    color: #b3b3b3;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.2px;
   }
 </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
+  <div class="wrapper">
     <div class="logo"><span>Parsgus</span></div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
 
-  <!-- SLIDE MENU -->
-  <div class="menu-panel" id="menuPanel">
-
-    <div class="menu-item" id="infoItem">
-      <div class="menu-item-header" data-target="infoItem">
-        <span class="title">Info-Info Ges</span>
-        <span class="chevron"></span>
-      </div>
-      <div class="menu-item-content">
-        <p class="info-text">mungkin ada tambahan SFX lagi, dan mungkin akan segera hadir kalo lagi gak mager aku, solusinya kasih gua duit 100M😹</p>
-      </div>
-    </div>
-
-    <div class="menu-item" id="contactItem">
-      <div class="menu-item-header" data-target="contactItem">
-        <span class="title">Contacts</span>
-        <span class="chevron"></span>
-      </div>
-      <div class="menu-item-content">
-        <a href="https://wa.me/message/OKPQE7FVPPXHM1" class="menu-btn" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-    </div>
-
-    <div class="menu-item" id="kisahItem">
-      <div class="menu-item-header" data-target="kisahItem">
-        <span class="title">My Kisah</span>
-        <span class="chevron"></span>
-      </div>
-      <div class="menu-item-content">
-        <p class="kisah-text">Tetap maju jangan menyerah, mau di remehkan kita, mau berusaha kita, bahkan hasil usaha kita tidak di hargai mau orang tidak di kenal, temen, bahkan orang tua maupun saudara, mereka gak akan lihat usaha kita, sekeras apapun usaha kita gak akan keliatan proses usaha kita jika tidak berhasil, berhasil pun belum tentu mereka puas, tetap maju terus, mau di hina oleh teman atau orang tua, tetap semangat menjalani hidup, dan jika kalian yg baca ini adalah laki, tetap maju kawan, mau kita nangis gak akan ada yg benar-benar peduli apalagi sudah dewasa, tetap maju sampai berhasil, biarkan mereka menghina kita, tetap punya tekad untuk terus maju</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <div class="main-wrapper">
     <div class="glow-box">
-      <a href="https://gofile.io/d/OSeI3C" class="box-btn sfx-btn" target="_blank" rel="noopener">SFX Design</a>
-      <button type="button" class="box-btn soon sfx-btn" id="soonBtn">Coming soon</button>
+      <div class="icon">⚙️</div>
+      <h1>Website Sedang Perawatan</h1>
+      <p>sabar Wook, member Σ tahun depan ku kasih 😹😹🤘🌹</p>
     </div>
   </div>
 
-  <!-- POPUP -->
-  <div class="popup-overlay" id="popupOverlay">
-    <div class="popup-box">
-      <button type="button" class="popup-close" id="popupClose" aria-label="Tutup">&times;</button>
-      <p>mager tambah SFX</p>
-    </div>
-  </div>
-
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const menuPanel = document.getElementById('menuPanel');
-
-    menuToggle.addEventListener('click', function () {
-      menuToggle.classList.toggle('active');
-      menuPanel.classList.toggle('open');
-    });
-
-    document.querySelectorAll('.menu-item-header').forEach(function (header) {
-      header.addEventListener('click', function () {
-        const item = document.getElementById(header.dataset.target);
-        item.classList.toggle('expanded');
-      });
-    });
-
-    const soonBtn = document.getElementById('soonBtn');
-    const popupOverlay = document.getElementById('popupOverlay');
-    const popupClose = document.getElementById('popupClose');
-    const popupBox = document.querySelector('.popup-box');
-
-    soonBtn.addEventListener('click', function () {
-      popupOverlay.classList.add('show');
-    });
-
-    popupClose.addEventListener('click', function () {
-      popupOverlay.classList.remove('show');
-    });
-
-    popupOverlay.addEventListener('click', function () {
-      popupOverlay.classList.remove('show');
-    });
-
-    popupBox.addEventListener('click', function (e) {
-      e.stopPropagation();
-    });
-  </script>
 </body>
 </html>
